@@ -6,38 +6,48 @@ function Login  () {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = async () => {
-    const res = await fetch("https://localhost:5001/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password })
-    });
+  const handleLogin = async (e) => {
+    e.preventDefault(); // Very very very Important
+    try {
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
 
-    const text = await res.text();
-    console.log(text);
-    
-    alert(text);
+      const data = await res.json();
+      console.log(data); // log what backend sends
+      if(data.success === true)
+      navigate('/dashboard')
+      else navigate('/login')
+
+    } catch (err) {
+      console.error("Login error:", err);
+    }
+
   };
+
+
 
     return (
     <>
         <div className="container">  
-        <form action="">
+        <form onSubmit={handleLogin}>
         <div className='logindiv'>
             <h1 className='loginh1'>Login</h1>
 
-            <input type = "text" placeholder="Enter Username" id="usrname"></input>
+            <input type = "text" placeholder="Enter Username" value={username} id="usrname" onChange={e => setUsername(e.target.value)} ></input>
             <br />
             
-            <input type="password" placeholder="Enter Password" id='password'/>
+            <input type="password" value={password} placeholder="Enter Password" id='password' onChange={e => setPassword(e.target.value)}/>
             
             
-            <button id = "login-btn" onClick={handleLogin}>Login </button>
+            <button id = "login-btn" type = "submit">Login </button>
 
            <hr className="login-separator" />         
             <span id="para">Don't have an account?</span>
+            <button id = "reg-btn" type = "button" onClick={() =>navigate('/register')}>Register</button> 
             
-            <button id = "reg-btn" onClick={() => navigate('/register')}>Register</button> 
         </div>
         </form>
         </div> 

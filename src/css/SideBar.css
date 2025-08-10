@@ -1,0 +1,15 @@
+.sidebar{
+    position: fixed; /* or 'sticky' if you want it to scroll with content */
+    top: 0px;
+    left: 0;
+    height: 100vh;
+    width: 300px;
+    color: black;
+    /* background-color:; */
+    /* display: block  ; */
+    overflow-y: auto; /* Adds scroll if content exceeds height */
+    z-index: 1000; 
+    border: 1px solid black;
+    border-radius: 5px;
+    z-index: 4;
+}

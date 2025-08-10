@@ -1,0 +1,71 @@
+
+.para {
+  position: fixed;
+  top: 10px;
+  left: 320px;
+  right: 50px;
+
+  color: black;
+  background-color: white;
+
+  z-index: 2;
+  margin: 0;
+  padding: 12px 20px;
+
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+
+  letter-spacing: 0.5px;
+  line-height: 1.4;
+  text-align: center;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.para:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+
+.textarea {
+    resize: none;
+    position: fixed;
+    top: 75px;      
+    right: 60px;
+    left: 320px;
+    bottom: 200px;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 2;     
+}
+
+.button {
+  position: fixed;
+  right: 60px;
+  bottom: 157px;
+
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  color: black;
+
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.button:hover {
+  background-color: skyblue;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
