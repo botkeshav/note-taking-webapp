@@ -5,6 +5,7 @@ function Login  () {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [msg,setmsg] = useState("");
 
   const handleLogin = async (e) => {
     e.preventDefault(); // Very very very Important
@@ -16,6 +17,8 @@ function Login  () {
       });
 
       const data = await res.json();
+      setmsg(data.message)
+
       console.log(data); // log what backend sends
       if(data.success === true)
       navigate('/dashboard')
@@ -24,10 +27,7 @@ function Login  () {
     } catch (err) {
       console.error("Login error:", err);
     }
-
   };
-
-
 
     return (
     <>
@@ -35,7 +35,7 @@ function Login  () {
         <form onSubmit={handleLogin}>
         <div className='logindiv'>
             <h1 className='loginh1'>Login</h1>
-
+            {msg !== true && <p  style = {{ color: 'red', fontWeight: 'bold', fontSize:'20px'}} >{msg}</p>}
             <input type = "text" placeholder="Enter Username" value={username} id="usrname" onChange={e => setUsername(e.target.value)} ></input>
             <br />
             
