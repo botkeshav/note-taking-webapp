@@ -5,7 +5,8 @@ function InputBox() {
     // <div>InputBox</div>
     <>
   <div className="container">
-      <strong><p className= {styles.para}> Hello User!</p></strong>
+        
+       <input type="text" className= {styles.para} placeholder='Notes Title' />
       {/* <h2>Hello User!</h2> */}
       <textarea className={styles.textarea} placeholder="Type your Notes here"></textarea>
        <button className={styles.button}>Add</button> 
