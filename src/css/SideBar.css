@@ -24,10 +24,43 @@
  height: 50px;
  /* z-index: 7; */
  border-radius: 5px;
- /* border-style: none; */
+ border-style: none;
  top:94vh;
 }
 
 .logout:hover{
     cursor: pointer;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+
+}
+
+ul{
+    border-style: none;
+    /* width: 300px; */
+    /* background-color: aqua; */
+    padding:0;
+}
+
+ul li
+{
+    list-style: none;    
+    
+}
+.items
+{
+    width: 300px;
+    border-style: none;
+    height: 40px;
+    border-radius: 5px;
+    background-color: white;
+
+}
+
+.items:hover{
+    cursor: pointer;
+    /* z-index: 5; */
+    /* background-color: #e0e0e0; */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
 }
