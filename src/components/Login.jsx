@@ -1,6 +1,8 @@
 import '../css/Login.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+
+
 function Login  () {
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
@@ -19,18 +21,25 @@ function Login  () {
       });
 
       const data = await res.json();
-      // setloading(data.message)
+   
       setmsg(data.message)
 
       console.log(data); // log what backend sends
       if(data.success === true)
-      navigate('/dashboard')
-      else navigate('/login')
+      {
+        navigate('/dashboard');
+        localStorage.setItem("token", data.token);
+        console.log(data.token);
+      }
+      else   
+      {
+        navigate('/login')
+      }
 
     } catch (err) {
       console.error("Login error:", err);
     }finally{
-      setloading(false)
+      setloading(false) // so, that the button appears if user fails to login
     }
   };
     return (
